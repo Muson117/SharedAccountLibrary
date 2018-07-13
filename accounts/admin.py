@@ -1,3 +1,4 @@
+''' models registered to Django admin interface '''
 from django.contrib import admin
 
 # Register your models here.

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.contrib.auth import views as auth_views
 
 
 # Use static() to add url mapping to serve static files during development (only)
@@ -26,5 +27,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
+    path(r'^login/$', auth_views.login, name='login'),
     path('', RedirectView.as_view(url='/accounts/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

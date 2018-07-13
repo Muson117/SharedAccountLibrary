@@ -1,3 +1,4 @@
+''' all views for accounts app '''
 from django.shortcuts import render, get_object_or_404
 from accounts.models import Account #, Employee
 
@@ -8,7 +9,7 @@ def index(request):
     context = {'available_account_list': available_account_list,}
     return render(request, 'accounts/index.html', context)
 
-def login(request, account_id):
+def accountlist(request, account_id):
     ''' list all accounts '''
     account = get_object_or_404(Account, pk=account_id)
     context = {'account' : account,}
