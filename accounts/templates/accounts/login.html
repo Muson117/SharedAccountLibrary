@@ -1,0 +1,16 @@
+<h1> {{ account.account_name }}</h1>
+<ul>
+    {% if account.account_free == False %}
+        <li>Taken by: {{ account.account_taken_by }}</li>
+        <li>Last time taken at: {{ account.account_taken_at }}</li>
+    {% endif %}
+
+    <li>Available for use: {{ account.account_free }}</li>        
+</ul>    
+    
+    <form action="{% url 'accounts:pass_change' account.id %}" method="post">
+    {% csrf_token %}
+    
+    <input type="text" name="password" value="{{ account.account_pass }}" />
+    <input type="submit" value="Change Password" />
+    </form>

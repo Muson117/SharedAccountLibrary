@@ -1,7 +1,14 @@
 {% if available_account_list %}
     <ul>
         {% for account in available_account_list %}
-            <li><a href="/accounts/{{ account.id }}/">{{ account.account_name }}</a></li>
+            {% if account.account_free == True %}
+            <li><a href="/accounts/{{ account.id }}/">{{ account.account_name }}</a> Available</li>
+            {% endif %}
+            {% if account.account_free == False %}
+            <li>{{ account.account_name }} is taken</li>
+            {% endif %}
+
+            
         {% endfor %}
     </ul>
 {% else %}
