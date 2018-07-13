@@ -52,6 +52,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'saknys.urls'
 
+LOGIN_REDIRECT_URL = 'employees/profile'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

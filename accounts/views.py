@@ -13,8 +13,7 @@ def accountlist(request, account_id):
     ''' list all accounts '''
     account = get_object_or_404(Account, pk=account_id)
     context = {'account' : account,}
-    return render(request, 'accounts/login.html', context)
-    #return HttpResponse("Available account is %s." % account)
+    return render(request, 'accounts/accountlist.html', context)
 
 def pass_change():
     ''' change password for given account '''
