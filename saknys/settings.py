@@ -52,7 +52,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'saknys.urls'
 
-LOGIN_REDIRECT_URL = 'employees/profile'
+#LOGIN_REDIRECT_URL = 'accounts/'
+#LOGIN_REDIRECT_URL = 'employees/profile'
 
 TEMPLATES = [
     {
