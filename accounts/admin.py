@@ -15,4 +15,17 @@ class EmployeeAdmin(admin.ModelAdmin):
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
     ''' what to display in admin '''
-    #list_filter = ("account_status")
+    list_display = ('account_name', 'status', 'account_taken_by', 'account_taken_at')
+    list_filter = ['status', 'account_taken_at']
+    exclude = ('account_pass')
+
+    '''
+    fieldsets = (
+        (None, {
+            'fields': ('account_name','account_pass')
+        }),
+        ('Availability', {
+            'fields': ('status', 'id')
+        }),
+    )
+    '''

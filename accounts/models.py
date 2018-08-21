@@ -24,15 +24,15 @@ class Account(models.Model):
                                         )
     account_taken_at = models.DateTimeField('Account in use since', auto_now=True)
     #account_free = models.BooleanField(default=True)
-    account_status_options = (
+    ACCOUNT_STATUS = (
         ('t', 'Taken'),
         ('a', 'Available'),
         ('m', 'Maintenance'),
     )
 
-    account_status = models.CharField(
+    status = models.CharField(
         max_length=1,
-        choices=account_status_options,
+        choices=ACCOUNT_STATUS,
         blank=True,
         default='m',
         help_text='Account availability',
