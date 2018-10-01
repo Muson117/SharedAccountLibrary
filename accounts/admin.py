@@ -15,9 +15,9 @@ class EmployeeAdmin(admin.ModelAdmin):
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
     ''' what to display in admin '''
-    list_display = ('account_name', 'status', 'account_taken_by', 'account_taken_at')
+    list_display = ('account_name', 'type', 'status', 'account_taken_by', 'account_taken_at')
     list_filter = ['status', 'account_taken_at']
-    exclude = ('account_pass')
+    exclude = ['account_pass']
 
     '''
     fieldsets = (

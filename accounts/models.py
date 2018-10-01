@@ -17,6 +17,18 @@ class Account(models.Model):
     ''' holds login accounts class '''
     account_name = models.CharField(max_length=100)
     account_pass = models.CharField(max_length=100)
+    ACCOUNT_TYPE = (
+        ('Safari', 'Safari'), ('Pluralsights', 'Pluralsights'),
+    )
+
+    type = models.CharField(
+        max_length=100,
+        choices=ACCOUNT_TYPE,
+        blank=False,
+        default='Safari',
+        help_text='type',
+    )
+
     account_taken_by = models.ForeignKey(Employee,
                                          models.SET_NULL,
                                          blank=True,
