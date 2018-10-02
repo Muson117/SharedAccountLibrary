@@ -30,6 +30,5 @@ urlpatterns = [
     path('accounts/', admin.site.urls),
     #path('login/', auth_views.login, name='login'),
     #path('logout/', auth_views.logout, {'next_page':'/'},name='logout'),
-    #path('', RedirectView.as_view(url='/accounts/', permanent=True)),
-    #path('', RedirectView.as_view(url='admin/', permanent=True)),
+    path('', RedirectView.as_view(url='/accounts/accounts/account/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

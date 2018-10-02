@@ -1,17 +1,19 @@
 ''' models for accounts app '''
 from django.db import models
+from django.contrib.auth.models import User
 
-
+'''
 class Employee(models.Model):
-    ''' holds users '''
+   #' holds users '
     employee_FirstName = models.CharField("FirstName", max_length=100)
     employee_LastName = models.CharField("LastName", max_length=100)
-    employee_ShortName = models.CharField(max_length=20, help_text="Your BB number", blank=True)
+    employee_ShortName = models.CharField(max_length=20, help_text="Your short name", blank=True)
     employee_PersonalPhone = models.CharField(max_length=100, unique=True)
     employee_PersonalEmail = models.EmailField(unique=True, blank=True, null=True,)
 
     def __str__(self):
         return self.employee_FirstName +'_'+ self.employee_LastName
+'''
 
 class Account(models.Model):
     ''' holds login accounts class '''
@@ -28,12 +30,10 @@ class Account(models.Model):
         default='Safari',
         help_text='type',
     )
-
-    account_taken_by = models.ForeignKey(Employee,
-                                         models.SET_NULL,
-                                         blank=True,
-                                         null=True,
-                                        )
+    
+    #account_taken_by = models.ForeignKey(Employee,models.SET_NULL,blank=True,null=True,)
+    
+    account_taken_by = models.ForeignKey(User, models.SET_NULL, blank=True, null=True,)    
     account_taken_at = models.DateTimeField('Account in use since', auto_now=True)
     #account_free = models.BooleanField(default=True)
     ACCOUNT_STATUS = (
